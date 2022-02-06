@@ -1,0 +1,16 @@
+require("general")
+require("mappings")
+require("plugins")
+
+require("config/compe")
+require("config/gitsigns")
+require("config/lspconfig")
+require("config/lualine")
+require("config/neoterm")
+require("config/nvim-autopairs")
+require("config/nvim-tree")
+require("config/telescope")
+require("config/tree-sitter")
+require("config/trouble")
+
+vim.cmd("colorscheme dracula")
