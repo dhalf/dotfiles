@@ -2,6 +2,7 @@ require("general")
 require("mappings")
 require("plugins")
 
+require("config/autosave")
 require("config/compe")
 require("config/gitsigns")
 require("config/lspconfig")

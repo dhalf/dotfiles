@@ -12,6 +12,11 @@ local servers = {
 --'html',
 }
 
+vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', { noremap = true, silent = true })
+
 -- Configure on_attach hooks
 local function common_on_attach(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -38,6 +43,10 @@ local function common_on_attach(client, bufnr)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+common_capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 
 -- Configure LSP servers
 local enhance_server_opts = {
@@ -93,6 +102,7 @@ lsp_installer.on_server_ready(function(server)
   -- Specify the default options which we'll use to setup all servers
   local opts = {
     on_attach = common_on_attach,
+    capabilities = common_capabilities,
   }
 
   if enhance_server_opts[server.name] then

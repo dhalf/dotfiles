@@ -22,5 +22,5 @@ vim.opt.expandtab = true
 vim.cmd 'filetype plugin indent on'
 
 -- Completion options
-vim.opt.completeopt = 'menuone,noinsert'
+vim.opt.completeopt = 'menu,menuone,noselect'
 vim.opt.shortmess:append('c')

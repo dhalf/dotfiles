@@ -19,6 +19,7 @@ local tnoremap = function(lhs, rhs)
 end
 
 vim.g.mapleader = ' '
+nnoremap("<Esc>", ":nohlsearch<CR><Esc>")
 
 -- Use alt + hjkl to resize windows
 nnoremap("<M-j>", ":resize -2<CR>")

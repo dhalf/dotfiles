@@ -8,6 +8,9 @@ require("packer").startup(function(use)
   -- Dracula
   use({ "darker-dracula/vim", as = "dracula" })
 
+  -- Indent line
+  use("lukas-reineke/indent-blankline.nvim")
+
   -- Git in the gutter
   use("lewis6991/gitsigns.nvim")
 
@@ -28,6 +31,9 @@ require("packer").startup(function(use)
 
   -- file trees
   use("kyazdani42/nvim-tree.lua")
+
+  -- Autosave
+  use("Pocco81/AutoSave.nvim")
 
   -- =====================
   -- TELESCOPE
